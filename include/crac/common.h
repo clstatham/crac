@@ -13,8 +13,8 @@
  * MIT / Apache 2.0 (dual-licensed)
  */
 
-#ifndef CRAC_H_INCLUDED
-#define CRAC_H_INCLUDED
+#ifndef INCLUDE_CRAC_COMMON
+#define INCLUDE_CRAC_COMMON
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -66,8 +66,13 @@ CRAC_INLINE void crac_println(ccharptr fmt, ...) {
   printf("\n");
 }
 
-static inline void crac_panic(const char* msg) {
-  crac_println("panicked: %s", msg);
+CRAC_INLINE static void crac_panic(const char* fmt, ...) {
+  va_list args;
+  va_start(args, fmt);
+  fprintf(stderr, "panicked: ");
+  vfprintf(stderr, fmt, args);
+  va_end(args);
+  fprintf(stderr, "\n");
 #if defined(NDEBUG) || defined(RELEASE)
   exit(1);
 #else
@@ -82,4 +87,4 @@ static inline void crac_panic(const char* msg) {
 }
 #endif
 
-#endif /* CRAC_H_INCLUDED */
+#endif /* INCLUDE_CRAC_COMMON */

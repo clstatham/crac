@@ -1,5 +1,5 @@
-#ifndef CRAC_LOG_H_INCLUDED
-#define CRAC_LOG_H_INCLUDED
+#ifndef INCLUDE_CRAC_LOG
+#define INCLUDE_CRAC_LOG
 
 #ifdef __cplusplus
 extern "C" {
@@ -8,7 +8,6 @@ extern "C" {
 #include <stdarg.h>
 #include <stdio.h>
 #include "common.h"
-
 
 typedef enum {
   CRAC_LOG_LEVEL_TRACE,
@@ -55,4 +54,4 @@ CRAC_INLINE void crac_log_level(crac_log_level_t level, ccharptr fmt, ...) {
 }
 #endif
 
-#endif  // CRAC_LOG_H_INCLUDED
+#endif /* INCLUDE_CRAC_LOG */

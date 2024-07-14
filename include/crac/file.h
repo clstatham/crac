@@ -1,5 +1,5 @@
-#ifndef CRAC_FILE_H_INCLUDED
-#define CRAC_FILE_H_INCLUDED
+#ifndef INCLUDE_CRAC_FILE
+#define INCLUDE_CRAC_FILE
 
 #ifdef __cplusplus
 extern "C" {
@@ -25,4 +25,4 @@ extern "C" {
 }
 #endif
 
-#endif  // CRAC_FILE_H_INCLUDED
+#endif /* INCLUDE_CRAC_FILE */

@@ -1,5 +1,5 @@
-#ifndef CRAC_MATH_H_INCLUDED
-#define CRAC_MATH_H_INCLUDED
+#ifndef INCLUDE_CRAC_MATH
+#define INCLUDE_CRAC_MATH
 
 #ifdef __cplusplus
 extern "C" {
@@ -10,7 +10,6 @@ extern "C" {
 #include <stdint.h>
 #include <stdlib.h>
 #include "common.h"
-
 
 #define CRAC_RAND_MAX RAND_MAX
 #define CRAC_MAX_VEC_CAPACITY LLONG_MAX
@@ -380,4 +379,4 @@ CRAC_INLINE void crac_mat4_print(crac_mat4_t m) {
 }
 #endif
 
-#endif  // CRAC_MATH_H_INCLUDED
+#endif /* INCLUDE_CRAC_MATH */

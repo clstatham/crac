@@ -1,5 +1,5 @@
-#ifndef CRAC_HASH_H_INCLUDED
-#define CRAC_HASH_H_INCLUDED
+#ifndef INCLUDE_CRAC_HASH
+#define INCLUDE_CRAC_HASH
 
 #ifdef __cplusplus
 extern "C" {
@@ -47,4 +47,4 @@ CRAC_INLINE u64 crac_hash_bytes(const u8* data, usize len) {
 }
 #endif
 
-#endif  // CRAC_HASH_H_INCLUDED
+#endif /* INCLUDE_CRAC_HASH */

@@ -1,5 +1,5 @@
-#ifndef CRAC_VEC_H_INCLUDED
-#define CRAC_VEC_H_INCLUDED
+#ifndef INCLUDE_CRAC_VEC
+#define INCLUDE_CRAC_VEC
 
 #ifdef __cplusplus
 extern "C" {
@@ -7,6 +7,7 @@ extern "C" {
 
 #include "assert.h"
 #include "common.h"
+#include "mem.h"
 
 #define crac_vec_decl(vec_type, item_type)  \
   typedef struct {                          \
@@ -72,4 +73,4 @@ extern "C" {
 }
 #endif
 
-#endif  // CRAC_VEC_H_INCLUDED
+#endif /* INCLUDE_CRAC_VEC */

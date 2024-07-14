@@ -1,6 +1,6 @@
 # crac
 
-## Connor's Rusty Abstractions for C
+**C**onnor's **R**usty **A**bstractions for **C**
 
 A header-only library of useful types, functions, and macros for C, inspired by Rust.
 
