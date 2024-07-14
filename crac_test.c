@@ -9,7 +9,6 @@
 crac_vec_decl(intvec, i32);
 
 int main() {
-
   crac_println("Hello, %s!", "world");
   crac_log_level(CRAC_LOG_LEVEL_INFO, "Info, world!");
   crac_log_level(CRAC_LOG_LEVEL_WARN, "Warning, %s!", "world");
@@ -32,9 +31,9 @@ int main() {
   }
 
   crac_static_assert(1 == 1);
-  // CRAC_STATIC_ASSERT(1 == 0); // uncomment to see the error
+  // crac_static_assert(1 == 0);  // uncomment to see the error
 
-  u32 *ptr = crac_new(u32, 5);
+  u32* ptr = crac_new(u32, 5);
   crac_println("*ptr = %d", *ptr);
   crac_free(ptr);
 
@@ -42,7 +41,7 @@ int main() {
   crac_println("value = %llu", value);
   u64 hash = crac_hash_int(value);
   crac_println("hash = %llu", hash);
-  hash = crac_hash_bytes((const u8 *)&value, sizeof(value));
+  hash = crac_hash_bytes((const u8*)&value, sizeof(value));
   crac_println("hash = %llu", hash);
 
   crac_vec3_t vec3_a = {1.0f, 2.0f, 3.0f};
@@ -86,7 +85,7 @@ int main() {
   crac_mat4_print(mat4_c);
   crac_println("");
 
-  intvec *vec = intvec_new();
+  intvec* vec = intvec_new();
   intvec_push(vec, 1);
   intvec_push(vec, 2);
   intvec_push(vec, 3);
