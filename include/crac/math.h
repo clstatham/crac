@@ -5,11 +5,12 @@
 extern "C" {
 #endif
 
-#include "common.h"
 #include <limits.h>
 #include <math.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include "common.h"
+
 
 #define CRAC_RAND_MAX RAND_MAX
 #define CRAC_MAX_VEC_CAPACITY LLONG_MAX
@@ -32,15 +33,21 @@ extern "C" {
 #define crac_rad2deg(rad) ((rad) * CRAC_RAD_TO_DEG)
 #define CRAC_EPSILON 0.00001
 
-CRAC_INLINE void crac_set_seed(u64 seed) { srand(seed); }
+CRAC_INLINE void crac_set_seed(u64 seed) {
+  srand(seed);
+}
 
-CRAC_INLINE u64 crac_rand() { return rand(); }
+CRAC_INLINE u64 crac_rand() {
+  return rand();
+}
 
 CRAC_INLINE u64 crac_rand_range(u64 min, u64 max) {
   return min + crac_rand() % (max - min + 1);
 }
 
-CRAC_INLINE f64 crac_randf() { return (f64)crac_rand() / (f64)CRAC_RAND_MAX; }
+CRAC_INLINE f64 crac_randf() {
+  return (f64)crac_rand() / (f64)CRAC_RAND_MAX;
+}
 
 CRAC_INLINE f64 crac_randf_range(f64 min, f64 max) {
   return min + crac_randf() * (max - min);
@@ -76,7 +83,9 @@ typedef struct {
 } crac_mat4_t;
 
 /* vec2 */
-CRAC_INLINE crac_vec2_t crac_vec2(f64 x, f64 y) { return (crac_vec2_t){x, y}; }
+CRAC_INLINE crac_vec2_t crac_vec2(f64 x, f64 y) {
+  return (crac_vec2_t){x, y};
+}
 
 CRAC_INLINE crac_vec2_t crac_vec2_add(crac_vec2_t a, crac_vec2_t b) {
   return (crac_vec2_t){a.x + b.x, a.y + b.y};
@@ -271,8 +280,10 @@ CRAC_INLINE crac_mat4_t crac_mat4_rotate_z(float angle) {
   return (crac_mat4_t){c, -s, 0, 0, s, c, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1};
 }
 
-CRAC_INLINE crac_mat4_t crac_mat4_perspective(float fov, float aspect,
-                                              float near, float far) {
+CRAC_INLINE crac_mat4_t crac_mat4_perspective(float fov,
+                                              float aspect,
+                                              float near,
+                                              float far) {
   float f = 1.0f / tanf(fov * 0.5f);
   float nf = 1.0f / (near - far);
   // clang-format off
@@ -285,8 +296,12 @@ CRAC_INLINE crac_mat4_t crac_mat4_perspective(float fov, float aspect,
   // clang-format on
 }
 
-CRAC_INLINE crac_mat4_t crac_mat4_ortho(float left, float right, float bottom,
-                                        float top, float near, float far) {
+CRAC_INLINE crac_mat4_t crac_mat4_ortho(float left,
+                                        float right,
+                                        float bottom,
+                                        float top,
+                                        float near,
+                                        float far) {
   float lr = 1.0f / (left - right);
   float bt = 1.0f / (bottom - top);
   float nf = 1.0f / (near - far);
@@ -298,7 +313,8 @@ CRAC_INLINE crac_mat4_t crac_mat4_ortho(float left, float right, float bottom,
   // clang-format on
 }
 
-CRAC_INLINE crac_mat4_t crac_mat4_look_at(crac_vec3_t eye, crac_vec3_t center,
+CRAC_INLINE crac_mat4_t crac_mat4_look_at(crac_vec3_t eye,
+                                          crac_vec3_t center,
                                           crac_vec3_t up) {
   crac_vec3_t f = crac_vec3_normalize(crac_vec3_sub(center, eye));
   crac_vec3_t r = crac_vec3_normalize(crac_vec3_cross(f, up));
@@ -364,4 +380,4 @@ CRAC_INLINE void crac_mat4_print(crac_mat4_t m) {
 }
 #endif
 
-#endif // CRAC_MATH_H_INCLUDED
+#endif  // CRAC_MATH_H_INCLUDED

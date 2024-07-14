@@ -1,5 +1,5 @@
 /**
- * crac.h
+ * crac
  * Connor's Rusty Abstractions for C
  * A header-only library of useful functions and macros for C programming,
  * inspired by Rust.
@@ -41,7 +41,7 @@ typedef int64_t i64;
 typedef ptrdiff_t isize;
 typedef float f32;
 typedef double f64;
-typedef const char *ccharptr;
+typedef const char* ccharptr;
 
 #define CRAC_EXTERN extern
 
@@ -66,12 +66,12 @@ CRAC_INLINE void crac_println(ccharptr fmt, ...) {
   printf("\n");
 }
 
-static inline void crac_panic(const char *msg) {
+static inline void crac_panic(const char* msg) {
   crac_println("panicked: %s", msg);
 #if defined(NDEBUG) || defined(RELEASE)
   exit(1);
 #else
-  abort(); // abort and generate a core dump in debug mode
+  abort();  // abort and generate a core dump in debug mode
 #endif
 }
 

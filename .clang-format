@@ -1,10 +1,8 @@
 ---
-Language: C
 BasedOnStyle: Chromium
 BraceWrapping:
   AfterFunction: true
   AfterControlStatement: true
   SplitEmptyFunction: false
   AfterExternBlock: false
-Standard: C99
 ...

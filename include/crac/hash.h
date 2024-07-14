@@ -13,8 +13,8 @@ extern "C" {
 
 u64 crac_hash_int(u64 data);
 u64 crac_hash_str(ccharptr str);
-u64 crac_hash_bytes(const u8 *data, usize len);
-#define crac_hash(data) crac_hash_bytes((const u8 *)&data, sizeof(data))
+u64 crac_hash_bytes(const u8* data, usize len);
+#define crac_hash(data) crac_hash_bytes((const u8*)&data, sizeof(data))
 
 CRAC_INLINE u64 crac_hash_int(u64 data) {
   u64 hash = CRAC_HASH_OFFSET;
@@ -33,7 +33,7 @@ CRAC_INLINE u64 crac_hash_str(ccharptr str) {
   return hash;
 }
 
-CRAC_INLINE u64 crac_hash_bytes(const u8 *data, usize len) {
+CRAC_INLINE u64 crac_hash_bytes(const u8* data, usize len) {
   crac_assert(data, "hash_bytes: data is NULL");
   u64 hash = CRAC_HASH_OFFSET;
   for (usize i = 0; i < len; i++) {
@@ -47,4 +47,4 @@ CRAC_INLINE u64 crac_hash_bytes(const u8 *data, usize len) {
 }
 #endif
 
-#endif // CRAC_HASH_H_INCLUDED
+#endif  // CRAC_HASH_H_INCLUDED

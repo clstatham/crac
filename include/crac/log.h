@@ -5,9 +5,10 @@
 extern "C" {
 #endif
 
-#include "common.h"
 #include <stdarg.h>
 #include <stdio.h>
+#include "common.h"
+
 
 typedef enum {
   CRAC_LOG_LEVEL_TRACE,
@@ -21,23 +22,23 @@ CRAC_INLINE void crac_log_level(crac_log_level_t level, ccharptr fmt, ...) {
   va_list args;
   va_start(args, fmt);
   switch (level) {
-  case CRAC_LOG_LEVEL_TRACE:
-    printf("[TRACE] ");
-    break;
-  case CRAC_LOG_LEVEL_DEBUG:
-    printf("[DEBUG] ");
-    break;
-  case CRAC_LOG_LEVEL_INFO:
-    printf("[INFO]  ");
-    break;
-  case CRAC_LOG_LEVEL_WARN:
-    printf("[WARN]  ");
-    break;
-  case CRAC_LOG_LEVEL_ERROR:
-    printf("[ERROR] ");
-    break;
-  default:
-    break;
+    case CRAC_LOG_LEVEL_TRACE:
+      printf("[TRACE] ");
+      break;
+    case CRAC_LOG_LEVEL_DEBUG:
+      printf("[DEBUG] ");
+      break;
+    case CRAC_LOG_LEVEL_INFO:
+      printf("[INFO]  ");
+      break;
+    case CRAC_LOG_LEVEL_WARN:
+      printf("[WARN]  ");
+      break;
+    case CRAC_LOG_LEVEL_ERROR:
+      printf("[ERROR] ");
+      break;
+    default:
+      break;
   }
   vprintf(fmt, args);
   va_end(args);
@@ -54,4 +55,4 @@ CRAC_INLINE void crac_log_level(crac_log_level_t level, ccharptr fmt, ...) {
 }
 #endif
 
-#endif // CRAC_LOG_H_INCLUDED
+#endif  // CRAC_LOG_H_INCLUDED

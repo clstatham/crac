@@ -15,4 +15,4 @@ extern "C" {
 }
 #endif
 
-#endif // CRAC_STRING_H_INCLUDED
+#endif  // CRAC_STRING_H_INCLUDED

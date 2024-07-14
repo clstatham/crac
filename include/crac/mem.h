@@ -10,13 +10,13 @@ extern "C" {
 #define crac_malloc(size) malloc(size)
 #define crac_calloc(count, size) calloc(count, size)
 #define crac_realloc(ptr, size) realloc(ptr, size)
-#define crac_alloc(type) ((type *)malloc(sizeof(type)))
-#define crac_new(type, ...)                                                    \
-  ((type *)memcpy(malloc(sizeof(type)), &(type){__VA_ARGS__}, sizeof(type)))
-#define crac_free(ptr)                                                         \
-  do {                                                                         \
-    free(ptr);                                                                 \
-    ptr = NULL;                                                                \
+#define crac_alloc(type) ((type*)malloc(sizeof(type)))
+#define crac_new(type, ...) \
+  ((type*)memcpy(malloc(sizeof(type)), &(type){__VA_ARGS__}, sizeof(type)))
+#define crac_free(ptr) \
+  do {                 \
+    free(ptr);         \
+    ptr = NULL;        \
   } while (0)
 #define crac_memcpy(dest, src, len) memcpy(dest, src, len)
 #define crac_memset(ptr, value, len) memset(ptr, value, len)
@@ -28,4 +28,4 @@ extern "C" {
 }
 #endif
 
-#endif // CRAC_MEM_H_INCLUDED
+#endif  // CRAC_MEM_H_INCLUDED
